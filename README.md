@@ -1,20 +1,23 @@
-# NovaBot (ViwoBot)
+# NovaBot
 
-NovaBot is an in-home AI assistant project with:
-- A public landing/waitlist site (React + Vite, deployed on Vercel)
-- A backend voice assistant API (FastAPI + Python)
+NovaBot is a voice-first in-home AI companion.
 
-Live landing page: https://novabotlanding.vercel.app/landing
+It is designed to listen, remember context, and automate everyday routines like reminders, focus flows, and home actions in a calm, natural way.
 
-## Repo Structure
+## Links
 
-- `frontend/` React + TypeScript + Vite app
-- `backend/` FastAPI backend for voice assistant flows
-- `run.sh` helper script for local workflows
+- Website: https://novabotlanding.vercel.app
+- GitHub: https://github.com/rishabhsai/Nova-Home-Assitant
 
-## Quick Start
+## Project Structure
 
-### 1. Frontend
+- `frontend/`: NovaBot landing and waitlist site (React + Vite)
+- `backend/`: NovaBot assistant backend APIs and voice pipeline (FastAPI)
+- `run.sh`: Local workflow helper script
+
+## Local Development
+
+### Frontend
 
 ```bash
 cd frontend
@@ -22,9 +25,7 @@ npm install
 npm run dev
 ```
 
-Frontend runs on `http://localhost:5173` by default.
-
-### 2. Backend
+### Backend
 
 ```bash
 cd backend
@@ -34,17 +35,3 @@ pip install -r requirements.txt
 cp .env.example .env
 uvicorn main:app --reload --port 8000
 ```
-
-Backend runs on `http://localhost:8000`.
-
-## Deploy
-
-The frontend is deployed to Vercel. Current production domain:
-- `https://novabotlanding.vercel.app`
-
-Root (`/`) redirects to `/landing`.
-
-## Notes
-
-- Waitlist collection is currently email-based (no backend form handling).
-- For backend configuration and APIs, see `backend/README.md`.
