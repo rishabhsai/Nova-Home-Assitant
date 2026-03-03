@@ -495,6 +495,7 @@
 .waitlist-form {
     display: flex;
     gap: 0.6rem;
+    width: 100%;
 }
 
 .waitlist-input {
@@ -529,6 +530,7 @@
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
     white-space: nowrap;
+    width: 100%;
 }
 
 .waitlist-btn:hover {
@@ -577,6 +579,13 @@
     color: #888;
 }
 
+.waitlist-email-link {
+    color: #2b3945;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* ─── Footer ─── */
 .landing-footer {
     text-align: center;
@@ -599,14 +608,6 @@
 }
 
 @media (max-width: 519px) {
-    .waitlist-form {
-        flex-direction: column;
-    }
-
-    .waitlist-btn {
-        width: 100%;
-    }
-
     .usecases-grid,
     .memory-showcase {
         grid-template-columns: 1fr;

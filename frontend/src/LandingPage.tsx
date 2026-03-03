@@ -1,10 +1,9 @@
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
 import {
     Workflow,
     Brain,
     ListTodo,
     CheckCircle2,
-    Sparkles,
     Coffee,
     Moon,
     ShoppingCart,
@@ -78,19 +77,7 @@ const memories = [
 ]
 
 export default function LandingPage() {
-    const [email, setEmail] = useState('')
     const [submitted, setSubmitted] = useState(false)
-    const [loading, setLoading] = useState(false)
-
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault()
-        if (!email.trim()) return
-        setLoading(true)
-        setTimeout(() => {
-            setSubmitted(true)
-            setLoading(false)
-        }, 1200)
-    }
 
     const scrollToWaitlist = () => {
         document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
@@ -228,43 +215,29 @@ export default function LandingPage() {
                                     We're hand-building the first batch. Join the waitlist
                                     to reserve yours.
                                 </p>
-                                <form
-                                    className="waitlist-form"
-                                    onSubmit={handleSubmit}
+                                <div className="waitlist-form"
                                 >
-                                    <input
-                                        type="email"
-                                        className="waitlist-input"
-                                        placeholder="you@email.com"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
                                     <button
-                                        type="submit"
+                                        type="button"
                                         className="waitlist-btn"
-                                        disabled={loading}
+                                        onClick={() => setSubmitted(true)}
                                     >
-                                        {loading ? (
-                                            <Sparkles
-                                                size={18}
-                                                style={{ animation: 'spin 1s linear infinite' }}
-                                            />
-                                        ) : (
-                                            'Join Waitlist'
-                                        )}
+                                        Join Waitlist
                                     </button>
-                                </form>
+                                </div>
                             </>
                         ) : (
                             <div className="waitlist-success">
                                 <div className="success-icon">
                                     <CheckCircle2 size={28} />
                                 </div>
-                                <h3>You're on the list!</h3>
+                                <h3>Email us to join</h3>
                                 <p>
-                                    We'll reach out when the first units are ready. Thank
-                                    you for believing in Nova.
+                                    Send an email to{' '}
+                                    <a className="waitlist-email-link" href="mailto:rishabhsaiv@gmail.com">
+                                        rishabhsaiv@gmail.com
+                                    </a>{' '}
+                                    and we'll add you to the waitlist.
                                 </p>
                             </div>
                         )}
